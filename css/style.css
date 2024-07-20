@@ -1,7 +1,7 @@
 :root{
 
     /* light theme */
---background-dark': hsl(293, 100%, 98%);
+--background-dark: hsl(293, 100%, 98%);
 --on-background-light: hsl(264, 8%, 12%);
 --surface-light: hsl(293, 100%, 98%);
 --on-surface-light: hsl(264, 8%, 12%);
@@ -84,11 +84,11 @@
 --top-bar-height: 64px;
 }
 
-[data-theme=" light"]{
+[data-theme="light"]{
 
     color-scheme: light;
 
-    --background: var(--background-dark);
+    --background: var(--background-light);
     --on-background: var(--on-background-light);
     --surface: var(--surface-light);
     --on-surface-variant: var(--on-surface-variant-light);
@@ -322,6 +322,22 @@ body{
 
 :has(> .state-layer):is(:focus, :focus-visible, :active) .state-layer{opacity: 0.12;}
 
+.section{ padding-block: var(--section-padding);}
+
+.container { padding-inline: 16px;}
+
+.img-holder{
+    aspect-ratio: var(--width) / var(--height);
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.img-cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .topbar{
     background-color: var(--background);
     position: fixed;
@@ -348,7 +364,53 @@ body{
     border-radius: var(--radius-full);
     overflow: hidden;
 }
+.chip{
+    height: 32px;
+    max-width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding-inline: 16px;
+    border: 1px solid var(--outline);
+    border-radius: var(--surface);
+    color: var(--on-surface-variant);
+    --state-layer-bg: var(--on-surface-variant);
+}
 
+.chip .material-symbols-outlined{font-size: 1.8rem;}
+
+.saud {padding-block-start: calc(var(--top-bar-height)+50px);}
+
+.saud .container {
+    display: grid;
+    align-items: center;
+    gap: 24px;
+}
+
+.saud-banner {
+    width: 240px;
+    border-radius: var(--shape-corner-circle);
+}
+
+.saud-content {
+    max-width: 500px;
+}
+
+.saud .section-subtitle {
+    color: var(--on-surface-variant);
+}
+
+.saud .section-text {
+    margin-block: 5px 16px;
+    color: var(--on-surface-variant);
+}
+
+.saud .btn-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 [data-theme="dark"] .theme-btn .dark,
 [data-theme="light"] .theme-btn .light {display: none;}
 
